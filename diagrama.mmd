@@ -1,0 +1,17 @@
+%%{init: {"flowchart": {"curve": "linear"}, "class": {"curve": "linear"}}}%%
+classDiagram
+    direction TD
+
+    class Estufa {}
+    class ITemperatura {
+        <<interface>>
+    }
+    class TemperaturaCelsius {}
+    class TemperaturaFahrenheit {}
+    class TemperaturaAdapter {}
+
+    Estufa --> "1" ITemperatura
+    Estufa --> "1" TemperaturaAdapter
+    ITemperatura <|.. TemperaturaCelsius
+    TemperaturaFahrenheit <|-- TemperaturaAdapter
+    TemperaturaAdapter --> "1" ITemperatura
